@@ -3,9 +3,13 @@
 #include <string>
 #include <fstream>
 
-std::string TrainingData::training_file_txt(const std::string& file_name) {
+using std::string;
+
+
+string TrainingData::training_file_txt(string file_name) {
     
-    std::string training_text;
+
+    string training_string;
     std::ifstream training_file;
     training_file.open(file_name);
 
@@ -16,20 +20,37 @@ std::string TrainingData::training_file_txt(const std::string& file_name) {
         
         }
     
-    std::string line;
+    string line;
 
     while(std::getline(training_file, line)){
 
-        training_text += line;
+        training_string += line;
     }
 
-    if(training_text.empty()) {
+    if(training_string.empty()) {
 
         throw std::runtime_error ("Error: the file containing the training data is empty.");
 
     }
 
+    return training_string;
 }
+
+
+
+TrainingData::TrainingData(const string& file_name) {
+
+    string text_string = training_file_txt(file_name);
+
+    this->training_string = text_string;
+
+}
+
+string TrainingData::get_training_data() const {
+    return training_string;
+}
+
+
 
 
 
