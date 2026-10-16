@@ -21,11 +21,13 @@ class SmallLanguageModel {
 
         std::map<int, std::string> Training_function(std::string training_string);
 
-        std::map<string, int> k_gram_function(string training_string, int k_gram);
+        std::map<string, double> k_gram_function(string training_string, int k_gram);
         
-        std::map<char,int> SmallLanguageModel::char_after_word(string trining_string, string word, int k_gram);
+        std::map<char, double> char_after_word(string trining_string, string word, int k_gram);
 
+        std::map<string, double> prob_dist_k_gram(std::map<string, double> k_gram_string_map);
     
+        std::map<char, double> prob_dist_next_char(std::map<char, double>, int alpha);
     
     };
 
