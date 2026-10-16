@@ -28,8 +28,8 @@ int main(int argc, char* argv[]) {
                 throw std::invalid_argument("Error: Invalid output length, the output lenght must be greater than or equal to the k-value.\n $slm <k-value> <training data> <output>" );
             }
 
-            std::string training_file = argv[2];
-
+            std::string input_file = argv[2];
+                
         }
 
         if (argc == 6) {
@@ -56,7 +56,19 @@ int main(int argc, char* argv[]) {
     }
 
 
+        
+
+
+
+
     catch (const std::invalid_argument& e){
+
+        std::cerr << e.what() << '\n';
+        return 1;
+
+    }
+
+    catch (const std::runtime_error& e){
 
         std::cerr << e.what() << '\n';
         return 1;
