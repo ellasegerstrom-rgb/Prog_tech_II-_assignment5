@@ -9,11 +9,11 @@ The small language model is built on three main classes, one for extracting the 
 
 The input will look like this:
 
-"$ sml <k> <training file> <w>"
+"$ sml k training file w"
 
 If you want to set your own pseudocount:
 
-"$ sml -a <pseudocount> <k> <training file> <w>
+"$ sml -a pseudocount k training file w"
 
 k - is the lenght of the "words" the model will be training on. It needs to be a positive integer. 
 training file - a direction to a text file.
