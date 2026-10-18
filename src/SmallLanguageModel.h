@@ -15,13 +15,12 @@ class SmallLanguageModel {
 
     private: 
         int kgram;  // the gram or like the lenght of the "word" that we want to chech what comes next. 
-        int alpha;  //the pseudo-count
+        double alpha;  //the pseudo-count
 
 
     public:
-        SmallLanguageModel(int kgram, int alpha);
+        SmallLanguageModel(int kgram, double alpha);
 
-        map<int, string> Training_function(const string& training_string);
 
         map<string, double> kgram_function(const string& training_string);
         

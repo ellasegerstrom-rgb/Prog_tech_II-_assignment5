@@ -12,6 +12,7 @@ TrainingData::TrainingData(const string& file_name) {
     string text_string = training_file_txt(file_name);
     set<char> uniqe_chars = chars_in_text(text_string);
     this->training_string = text_string;
+    this->uniqe_chars = uniqe_chars;
 
 }
 
@@ -55,6 +56,12 @@ set<char> TrainingData::chars_in_text(string text_string) {
 
 string TrainingData::get_training_data() const {
     return training_string;
+
+}
+
+set<char> TrainingData::get_uniqe_chars() const {
+    return uniqe_chars;
+
 }
 
 

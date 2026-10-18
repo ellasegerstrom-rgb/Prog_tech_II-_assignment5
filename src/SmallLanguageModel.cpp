@@ -6,7 +6,7 @@ using std::string;
 using std::map;
 using std::set;
 
-SmallLanguageModel::SmallLanguageModel(int kgram, int alpha) {
+SmallLanguageModel::SmallLanguageModel(int kgram, double alpha) {
 
     this-> kgram = kgram;
     this-> alpha = alpha;
@@ -18,7 +18,7 @@ map<string, double> SmallLanguageModel::kgram_function(const string& training_st
     map<string, double> kgram_string_map;
 
 
-    for (int i=0; i<= (training_string.length()-kgram); i++) {
+    for (int i=0; i< (training_string.length()-kgram); i++) {
 
         string word = training_string.substr(i,kgram);
 
