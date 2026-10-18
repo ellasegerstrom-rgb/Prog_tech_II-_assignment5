@@ -5,20 +5,26 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <set>
+
+using std::string;
+using std::set;
 
 class TrainingData {
 
     private:
 
-        string training_file_txt (std::string file_name);
+        string training_file_txt (string file_name);
 
         string training_string;
 
+        set<char> chars_in_text (string string);
+
     public:
 
-        TrainingData(const std::string& file_name);
+        TrainingData(const string& file_name);
 
-        std::string get_training_data() const;
+        string get_training_data() const;
         
 
 };

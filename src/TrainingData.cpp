@@ -4,6 +4,16 @@
 #include <fstream>
 
 using std::string;
+using std::set;
+
+
+TrainingData::TrainingData(const string& file_name) {
+
+    string text_string = training_file_txt(file_name);
+    set<char> uniqe_chars = chars_in_text(text_string);
+    this->training_string = text_string;
+
+}
 
 
 string TrainingData::training_file_txt(string file_name) {
@@ -36,15 +46,12 @@ string TrainingData::training_file_txt(string file_name) {
     return training_string;
 }
 
+set<char> TrainingData::chars_in_text(string text_string) {
+        
+        set<char> unique_chars(text_string.begin(), text_string.end());
+        return unique_chars;
+    }
 
-
-TrainingData::TrainingData(const string& file_name) {
-
-    string text_string = training_file_txt(file_name);
-
-    this->training_string = text_string;
-
-}
 
 string TrainingData::get_training_data() const {
     return training_string;
