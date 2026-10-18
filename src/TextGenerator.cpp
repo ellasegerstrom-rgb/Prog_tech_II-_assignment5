@@ -70,8 +70,24 @@ string TextGenerator::generator(const map<string,double>& kgram_map, const map<s
 
     while(new_text.size()<w){
 
-        map<char, double> current_dist = char_dist_map.at(current_kgram);
-        char next_char = generate_next_char(current_dist);
+        map<char, double> current_dist;
+        try{
+        current_dist = char_dist_map.at(current_kgram);
+
+        }
+        catch(const std::out_of_range&){
+            break;
+        }
+
+        char next_char;
+
+        try{
+            next_char = generate_next_char(current_dist);
+
+        }
+        catch(const std::runtime_error&){
+            break;
+        }        
         new_text+=next_char;
         current_kgram = current_kgram.substr(1)+next_char;
     }

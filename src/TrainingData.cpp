@@ -26,7 +26,7 @@ string TrainingData::training_file_txt(string file_name) {
 
     if (!training_file.is_open()){
 
-        throw std::runtime_error ("Error: the file containing the training data couldn't be opened.");
+        throw std::runtime_error ("slm: cannot open file '" + file_name + "'");
              
         
         }
@@ -35,7 +35,7 @@ string TrainingData::training_file_txt(string file_name) {
 
     while(std::getline(training_file, line)){
 
-        training_string += line;
+        training_string += line +'\n';
     }
 
     if(training_string.empty()) {

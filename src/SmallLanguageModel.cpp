@@ -17,6 +17,10 @@ map<string, double> SmallLanguageModel::kgram_function(const string& training_st
 
     map<string, double> kgram_string_map;
 
+    if(training_string.length()<kgram+1){
+
+        throw std::invalid_argument("slm: The training text was too short to contain any text after the first k-gram.");
+    }
 
     for (int i=0; i< (training_string.length()-kgram); i++) {
 
